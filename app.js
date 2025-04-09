@@ -8,6 +8,19 @@ const FlashWord = {
             correct: null,
             showFeedback: false,
         }
+    },
+
+    methods: {
+        checkAnswer() {
+            this.correct = this.wordB == this.answer; 
+            this.showFeedback = true;
+        },
+
+        reset() {
+            this.answer = "",
+            this.correct = null,
+            this.showFeedback = false;
+        }
     }
 }
 
