@@ -2,42 +2,65 @@
 const FlashWord = {
   data() {
     return {
-      wordA: "hola",
-      wordB: "hello",
-      answer: "",
-      correct: null,
-      showFeedback: false,
 
-      image: null,
-      imageAlt: null,
+      // To do - put inside json
+      words: [
+        {
+          word_a: "hola",
+          word_b: "hello",
+          hint: "greeting",
+          answer: "",
+          correct: false,
+        },
+        {
+          word_a: "uno",
+          word_b: "one",
+          hint: "number",
+          answer: "",
+          correct: false,
+        },
+        {
+          word_a: "gris",
+          word_b: "grey",
+          hint: "color",
+          answer: "",
+          correct: false,
+        },
+      ],
 
-      hasError: false,
+      correctCount: 0,
+      completed: false,
     };
   },
 
+  computed: {
+    shuffledWords() {
+      return this.words.sort(() => .5 - Math.random());
+    },
+
+    wordCount(){
+      return this.words.length;
+    }
+  },
+
+  watch: {
+    correctCount() {
+      if (this.correctCount == this.wordCount){
+        this.completed = true;
+      }
+ 
+    }
+  },
+
   methods: {
-    checkAnswer() {
-      if (this.answer == "") {
-        this.hasError = true;
-        return;
+    checkAnswer(word){
+      word.correct = word.word_b = word.answer;
+
+      if (word.correct){
+        this.correctCount++;
       }
 
-      this.hasError = false;
-      this.correct = this.wordB == this.answer;
-
-      if (this.correct) {
-        this.image = "correct";
-        this.imageAlt = "green";
-      } else {
-        this.image = "incorrect";
-        this.imageAlt = "red";
-      }
-      this.showFeedback = true;
-    },
-
-    reset() {
-      (this.answer = ""), (this.correct = null), (this.showFeedback = false);
-    },
+    }
   },
 };
 
