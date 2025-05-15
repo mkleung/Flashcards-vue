@@ -1,7 +1,7 @@
 # VueJS Notes
 
 Source:
-https://youtu.be/8BgyPAeV7eU?si=Kd7-jDChLb_3XUXM&t=5556
+https://youtu.be/8BgyPAeV7eU?si=FrTLsLB-FfEGc78t&t=10800
 
 ### Contents
 
@@ -14,7 +14,7 @@ https://youtu.be/8BgyPAeV7eU?si=Kd7-jDChLb_3XUXM&t=5556
 - [x] 7. Attribute Binding (v-bind:src="image")
 - [x] 8. Form Input Binding (v-model)
 - [x] 9. Computed Properties and Watchers (computed: {})
-- [ ] 10. Building FlashWord
+- [x] 10. Building FlashWord
 - [ ] 11. Vite Build System
 - [ ] 12. Single File Components
 - [ ] 13. Composition API
@@ -103,3 +103,24 @@ const Example = {
 * Methods: react to an event happening in the DOM (eg. mouse click)
 * Computed properties: Reactively compose data based on changed to other data
 * Watchers: React with some action to a property changing
+
+
+**Hot Reloading**
+* Makes changes to our javascript and instantly see the results reflected in the browser without having to refresh the page
+
+**Tree Shaking**
+* Reduces the size of javascript bundles by removing unused code from final build
+* Improves performance
+
+**Minification**
+* Removes unnecessary characters from source code, like white spaces, variables and shortening variable names
+* Reduces the file size and obfuscates the code
+
+**Chunk Splitting**
+* Breaks large chunks of code into smaller ones
+* Enables asynchronous loading of multiple smaller chunks instead of one large chunk
+* Enables caching
+
+**Vite**
+
+```npm create vite@latest```
