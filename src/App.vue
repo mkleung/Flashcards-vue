@@ -1,5 +1,9 @@
 <script>
+
+import WordCard from './components/WordCard.vue';
+
 export default {
+  components: { WordCard },
   data() {
     return {
       // To do - put inside json
@@ -51,13 +55,9 @@ export default {
   },
 
   methods: {
-    checkAnswer(word) {
-      word.correct = word.word_b = word.answer;
-
-      if (word.correct) {
-        this.correctCount++;
-      }
-    },
+    incrementCorrectCount () {
+      this.correctCount++;
+    }
   },
 };
 </script>
@@ -69,7 +69,7 @@ export default {
   <p v-else>You have answered {{ correctCount }} of out {{ wordCount }}</p>
 
   <div id="cards">
-   
+    <WordCard v-for="word in shuffledWords" v-bind:word="word" v-on:incrementCorrectCount="incrementCorrectCount"></WordCard>
   </div>
 </template>
 
@@ -92,37 +92,6 @@ export default {
     display: grid;
     grid-template-columns: 300px 300px 300px;
     grid-gap: 30px;
-}
-
-.card {
-    background-color: #E8F0FF;
-    border-radius: 5px;
-    padding: 10px 0;
-    font-size: 25px;
-}
-
-input[type=text] {
-    border: 0;
-    font-size: 25px;
-    border-radius: 5px;
-    margin-top: 5px;
-    text-align: center;
-    padding: 5px;
-    width: 80%;
-}
-
-.word {
-    font-weight: bold;
-}
-
-.correctAnswer {
-    padding: 0;
-    margin: 0;
-}
-
-.correct {
-    color: #0f5132;
-    background-color: #d1e7dd;
 }
 
 #correctCount {

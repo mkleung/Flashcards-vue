@@ -15,8 +15,9 @@ https://youtu.be/8BgyPAeV7eU?si=FrTLsLB-FfEGc78t&t=10800
 - [x] 8. Form Input Binding (v-model)
 - [x] 9. Computed Properties and Watchers (computed: {})
 - [x] 10. Building FlashWord
-- [ ] 11. Vite Build System
-- [ ] 12. Single File Components
+- [x] 11. Vite Build System
+- [x] 12. Single File Components
+- [x] 13. Props and Events (this.$emit('eventname'))
 - [ ] 13. Composition API
 - [ ] 14. Dev Tools Wrap up
 
@@ -124,3 +125,12 @@ const Example = {
 **Vite**
 
 ```npm create vite@latest```
+
+
+**Props**
+* pass data from parent to child component
+
+**Events**
+* Pass data from child to parent component
+* `this.$emit('eventname')`
+* `v-on:incrementCorrectCount="method"` on parent component
